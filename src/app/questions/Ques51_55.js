@@ -16,7 +16,7 @@ const Ques51_55 = () => {
     const [vowelCountValue, setVowelCountValue] = useState('');
     const [vowelCountResult, setVowelCountResult] = useState(0);
     const [checkAlphabetValue, setCheckAlphabetValue] = useState('');
-    const [checkAlphabetResult, setCheckAlphabetResult] = useState('');
+    const [checkAlphabetResult, setCheckAlphabetResult] = useState(null);
 
     const onHrMinHandler = () => {
         let value = hrMinConversionValue.trim();
@@ -75,7 +75,25 @@ const Ques51_55 = () => {
     }
 
     const onCheckEqualAlphabetHandler = () => {
-        console.log('value = ',);
+        let value = checkAlphabetValue.trim().toLocaleLowerCase();
+        let countP = 0;
+        let countT = 0;
+        for(let i = 0; i < value.length; i++) {
+            if(value[i] === 'p') {
+                countP = countP + 1;
+            } else if((value[i] === 't')) {
+                countT = countT + 1;
+            }
+        }
+        if(value === '') {
+            alert('Fill the input.');
+        } else if((countP === 0) && (countT === 0)) {
+            setCheckAlphabetResult(false);
+        } else if(countP === countT) {
+            setCheckAlphabetResult(true);
+        } else {
+            setCheckAlphabetResult(false);
+        }
     }
 
     return(

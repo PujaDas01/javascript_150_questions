@@ -16,7 +16,7 @@ const ContainingPndT = (props) => {
                 buttonText='Check'
                 onClick={props.onCheckEqualAlphabetHandler}
             />
-            <p className='resultText'>Output: {props.checkAlphabetResult}</p>
+            <p className='resultText'>Output: {((props.checkAlphabetResult != null) && (props.checkAlphabetResult === true ? 'True' : 'False'))}</p>
         </QuestionLayout>
     )
 }
