@@ -75,7 +75,8 @@ const Ques51_55 = () => {
     }
 
     const onCheckEqualAlphabetHandler = () => {
-        let value = checkAlphabetValue.trim().toLocaleLowerCase();
+        let value = checkAlphabetValue.trim().toLowerCase();
+        console.log('value', value)
         let countP = 0;
         let countT = 0;
         for(let i = 0; i < value.length; i++) {
