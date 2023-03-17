@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import CharacterCopies from "../screens/CharacterCopies";
 import Divide from "../screens/Divide";
+import HalfExtractedString from "../screens/HalfExtractedString";
 import StringSpecifiedCopies from "../screens/StringSpecifiedCopies";
 import { quesData } from "../services/quesData";
 
@@ -13,6 +14,8 @@ const Ques56_60 = () => {
     const [specifiedStringResult, setSpecifiedStringResult] = useState('');
     const [characterValue, setCharacterValue] = useState('');
     const [characterResult, setCharacterResult] = useState('');
+    const [halfStringExtractedValue, setHalfStringExtractedValue] = useState('');
+    const [halfStringExtractedResult, setHalfStringExtractedResult] = useState('');
 
     const onDivisionHandler = () => {
         let value1 = divisionFirstValue.trim();
@@ -64,6 +67,18 @@ const Ques56_60 = () => {
             setCharacterResult(copyString);
         }
     }
+
+    const onHalfStringExtractedHandler = () => {
+        let value = halfStringExtractedValue.trim();
+        let firstHalfValue = value.substring(0, value.length / 2);
+        if(value === '') {
+            alert('Fill the input.');
+        } else if(value.length % 2 === 0) {
+            setHalfStringExtractedResult(firstHalfValue);
+        } else {
+            setHalfStringExtractedResult(value);
+        }
+    }
     
     return(
         <div className="questionContainer">
@@ -87,10 +102,17 @@ const Ques56_60 = () => {
             />
             <CharacterCopies
                 question={quesData[12]}
-                value={characterValue}
+                characterValue={characterValue}
                 setCharacterValue={(val) => setCharacterValue(val)}
                 onCharacterHandler={onCharacterHandler}
                 characterResult={characterResult}
+            />
+            <HalfExtractedString
+                question={quesData[13]}
+                halfStringExtractedValue={halfStringExtractedValue}
+                setHalfStringExtractedValue={(val) => setHalfStringExtractedValue(val)}
+                onHalfStringExtractedHandler={onHalfStringExtractedHandler}
+                halfStringExtractedResult={halfStringExtractedResult}
             />
         </div>
     )
