@@ -8,6 +8,7 @@ import PracticeQuestions4 from './app/pages/PracticeQuestions4';
 import PracticeQuestions5 from './app/pages/PracticeQuestions5';
 import Ques46_50 from './app/questions/Ques46_50';
 import Ques51_55 from './app/questions/Ques51_55';
+import Ques56_60 from './app/questions/Ques56_60';
 
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
       <PracticeQuestions5 />
       <Ques46_50 />
       <Ques51_55/>
+      <Ques56_60/>
     </div>
   )
 }
