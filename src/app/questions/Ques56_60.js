@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import CharacterCopies from "../screens/CharacterCopies";
 import Divide from "../screens/Divide";
 import StringSpecifiedCopies from "../screens/StringSpecifiedCopies";
 import { quesData } from "../services/quesData";
@@ -10,6 +11,8 @@ const Ques56_60 = () => {
     const [specifiedStringValue, setSpecifiedStringValue] = useState('');
     const [repeatStringValue, setRepeatStringValue] = useState('');
     const [specifiedStringResult, setSpecifiedStringResult] = useState('');
+    const [characterValue, setCharacterValue] = useState('');
+    const [characterResult, setCharacterResult] = useState('');
 
     const onDivisionHandler = () => {
         let value1 = divisionFirstValue.trim();
@@ -48,6 +51,19 @@ const Ques56_60 = () => {
             setSpecifiedStringResult(newValue);
         }
     }
+
+    const onCharacterHandler = () => {
+        let value = characterValue.trim();
+        let lastThreeChar = value.substring(value.length - 3);
+        let copyString = `${lastThreeChar}, ${lastThreeChar}, ${lastThreeChar}, ${lastThreeChar}`
+        if(value === '') {
+            alert('Fill the input.');
+        } else if(value.length < 3) {
+            alert('Value length must be greater than 3.')
+        } else {
+            setCharacterResult(copyString);
+        }
+    }
     
     return(
         <div className="questionContainer">
@@ -68,6 +84,13 @@ const Ques56_60 = () => {
                 setRepeatStringValue={(val) => setRepeatStringValue(val)}
                 onSpecifiedStringHandler={onSpecifiedStringHandler}
                 specifiedStringResult={specifiedStringResult}
+            />
+            <CharacterCopies
+                question={quesData[12]}
+                value={characterValue}
+                setCharacterValue={(val) => setCharacterValue(val)}
+                onCharacterHandler={onCharacterHandler}
+                characterResult={characterResult}
             />
         </div>
     )
