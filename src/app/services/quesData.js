@@ -73,8 +73,34 @@ export const quesData = [
         id: '60',
         quesNo: '60',
         ques: 'Write a JavaScript program to create a new string without the first and last character of a given string.'
-    }
+    },
+    {   
+        id: '61',
+        quesNo: '61',
+        ques: 'Write a JavaScript program to concatenate two strings except their first character.'
+    },
+    {   
+        id: '62',
+        quesNo: '62',
+        ques: 'Write a JavaScript program to move last three character to the start of a given string. The string length must be greater or equal to three.'
+    },
+    {
+        id: '63',
+        quesNo: '63',
+        ques: 'Write a JavaScript program to create a string using the middle three characters of a given string of odd length. The string length must be greater or equal to three.'
+    },
+    {
+        id: '64',
+        quesNo: '64',
+        ques: 'Write a JavaScript program to concatenate two strings and return the result. If the length of the strings are not same then remove the characters from the longer string.'
+    },
+    {
+        id: '65',
+        quesNo: '65',
+        ques: 'Write a JavaScript program to test whether a string end with "Script". The string length must be greater or equal to 6.'
+    },
 ];
+
 
 // export const quesData = [
 //     {
