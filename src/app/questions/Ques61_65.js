@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ConcatenateStrings from "../screens/ConcatenateStrings";
+import MovingThreeCharacters from "../screens/MovingThreeCharacters";
 import { quesData } from "../services/quesData";
 
 const Ques61_65 = () => {
@@ -7,6 +8,8 @@ const Ques61_65 = () => {
     const [concatenateValue1, setConcatenateValue1] = useState('');
     const [concatenateValue2, setConcatenateValue2] = useState('');
     const [concatenateStringsResult, setConcatenateStringsResult] = useState('');
+    const [movingCharacterValue, setMovingCharacterValue] = useState('');
+    const [movingCharacterResult, setMovingCharacterResult] = useState('');
 
     const onConcatenateStringsHandler = () => {
         let value1 = concatenateValue1.trim();
@@ -23,6 +26,19 @@ const Ques61_65 = () => {
         }
     }
 
+    const onMovingCharacterHandler = () => {
+        let value = movingCharacterValue.trim();
+        let threeChar = value.substring(value.length - 3);
+        let movingChar = threeChar + value;
+        if(value === '') {
+            alert('Fill the input.');
+        }  else if(value.length < 3) {
+            alert('Input length must be greater than or equal to 3.');
+        } else {
+            setMovingCharacterResult(movingChar);
+        }
+    }
+
     return(
         <div className="questionContainer">
             <ConcatenateStrings
@@ -33,6 +49,13 @@ const Ques61_65 = () => {
                 setConcatenateValue2={(val) => setConcatenateValue2(val)}
                 onConcatenateStringsHandler={onConcatenateStringsHandler}
                 concatenateStringsResult={concatenateStringsResult}
+            />
+            <MovingThreeCharacters
+                question={quesData[16]}
+                movingCharacterValue={movingCharacterValue}
+                setMovingCharacterValue={(val) => setMovingCharacterValue(val)}
+                onMovingCharacterHandler={onMovingCharacterHandler}
+                movingCharacterResult={movingCharacterResult}
             />
         </div>
     )
