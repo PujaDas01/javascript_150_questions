@@ -49,31 +49,6 @@ export const quesData = [
         quesNo: '55',
         ques: "Write a JavaScript program to check whether a given string contains equal number of p's and t's."
     },
-    {
-        id: '56',
-        quesNo: '56',
-        ques: 'Write a JavaScript program to divide two positive numbers and return the result as string with properly formatted commas.'
-    },
-    {
-        id: '57',
-        quesNo: '57',
-        ques: 'Write a JavaScript program to create a new string of specified copies (positive number) of a given string. '
-    },
-    {
-        id: '58',
-        quesNo: '58',
-        ques: 'Write a JavaScript program to create a new string of 4 copies of the last 3 characters of a given original string. The length of the given string must be 3 and above.'
-    },
-    {
-        id: '59',
-        quesNo: '59',
-        ques: 'Write a JavaScript program to extract the first half of a string of even length.'
-    },
-    {
-        id: '60',
-        quesNo: '60',
-        ques: 'Write a JavaScript program to create a new string without the first and last character of a given string.'
-    }
 ];
 
 // export const quesData = [
