@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import CharacterCopies from "../screens/CharacterCopies";
 import Divide from "../screens/Divide";
 import HalfExtractedString from "../screens/HalfExtractedString";
+import RemovingFirstLastCharacter from "../screens/RemovingFirstLastCharacter";
 import StringSpecifiedCopies from "../screens/StringSpecifiedCopies";
 import { quesData } from "../services/quesData";
 
@@ -16,6 +17,8 @@ const Ques56_60 = () => {
     const [characterResult, setCharacterResult] = useState('');
     const [halfStringExtractedValue, setHalfStringExtractedValue] = useState('');
     const [halfStringExtractedResult, setHalfStringExtractedResult] = useState('');
+    const [firstLastExtractedValue, setFirstLastExtractedValue] = useState('');
+    const [firstLastExtractedResult, setFirstLastExtractedResult] = useState('');
 
     const onDivisionHandler = () => {
         let value1 = divisionFirstValue.trim();
@@ -79,6 +82,19 @@ const Ques56_60 = () => {
             setHalfStringExtractedResult(value);
         }
     }
+
+    const onFirstLastExtractedHandler = () => {
+        let value = firstLastExtractedValue.trim();
+        let extractedFirstLastLetterValue = value.substring(1, value.length-1);
+        console.log('firstLetter', extractedFirstLastLetterValue);
+        if(value === '') {
+            alert('Fill the input.');
+        } else if(value.length < 3) {
+            alert('Length must be greater than 3 character.');
+        } else {
+            setFirstLastExtractedResult(extractedFirstLastLetterValue);
+        }
+    }
     
     return(
         <div className="questionContainer">
@@ -113,6 +129,13 @@ const Ques56_60 = () => {
                 setHalfStringExtractedValue={(val) => setHalfStringExtractedValue(val)}
                 onHalfStringExtractedHandler={onHalfStringExtractedHandler}
                 halfStringExtractedResult={halfStringExtractedResult}
+            />
+            <RemovingFirstLastCharacter
+                question={quesData[14]}
+                firstLastExtractedValue={firstLastExtractedValue}
+                setFirstLastExtractedValue={(val) => setFirstLastExtractedValue(val)}
+                onFirstLastExtractedHandler={onFirstLastExtractedHandler}
+                firstLastExtractedResult={firstLastExtractedResult}
             />
         </div>
     )
