@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ConcatenateStrings from "../screens/ConcatenateStrings";
+import MiddleThreeCharacter from "../screens/MiddleThreeCharacter";
 import MovingThreeCharacters from "../screens/MovingThreeCharacters";
 import { quesData } from "../services/quesData";
 
@@ -10,6 +11,8 @@ const Ques61_65 = () => {
     const [concatenateStringsResult, setConcatenateStringsResult] = useState('');
     const [movingCharacterValue, setMovingCharacterValue] = useState('');
     const [movingCharacterResult, setMovingCharacterResult] = useState('');
+    const [middleThreeCharacterValue, setMiddleThreeCharacterValue] = useState('');
+    const [middleThreeCharacterResult, setMiddleThreeCharacterResult] = useState('');
 
     const onConcatenateStringsHandler = () => {
         let value1 = concatenateValue1.trim();
@@ -39,6 +42,21 @@ const Ques61_65 = () => {
         }
     }
 
+    const onMiddleThreeCharacterHandler = () => {
+        let value = middleThreeCharacterValue.trim();
+        if(value === '') {
+            alert('Fill the input.');
+        } else if(value.length < 3) {
+            alert('Input length must be greater than or equal to 3.');
+        } else if((value.length === 3) || (value.length % 2 === 0)) {
+            setMiddleThreeCharacterResult(value);
+        } else if (value.length % 2 != 0) {
+            let startEndText = (value.length - 3) / 2;
+            let newValue = value.substring(startEndText, value.length - startEndText);
+            setMiddleThreeCharacterResult(newValue);
+        }
+    }
+
     return(
         <div className="questionContainer">
             <ConcatenateStrings
@@ -56,6 +74,13 @@ const Ques61_65 = () => {
                 setMovingCharacterValue={(val) => setMovingCharacterValue(val)}
                 onMovingCharacterHandler={onMovingCharacterHandler}
                 movingCharacterResult={movingCharacterResult}
+                />
+            <MiddleThreeCharacter
+                question={quesData[17]}
+                middleThreeCharacterValue={middleThreeCharacterValue}
+                setMiddleThreeCharacterValue={(val) => setMiddleThreeCharacterValue(val)}
+                onMiddleThreeCharacterHandler={onMiddleThreeCharacterHandler}
+                middleThreeCharacterResult={middleThreeCharacterResult}
             />
         </div>
     )
