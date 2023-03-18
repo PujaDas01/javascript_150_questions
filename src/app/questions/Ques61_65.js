@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ConcatenateStrings from "../screens/ConcatenateStrings";
 import MiddleThreeCharacter from "../screens/MiddleThreeCharacter";
 import MovingThreeCharacters from "../screens/MovingThreeCharacters";
+import RemoveLongerString from "../screens/RemoveLongerString";
 import { quesData } from "../services/quesData";
 
 const Ques61_65 = () => {
@@ -13,6 +14,9 @@ const Ques61_65 = () => {
     const [movingCharacterResult, setMovingCharacterResult] = useState('');
     const [middleThreeCharacterValue, setMiddleThreeCharacterValue] = useState('');
     const [middleThreeCharacterResult, setMiddleThreeCharacterResult] = useState('');
+    const [checkStringValue1, setCheckStringValue1] = useState('');
+    const [checkStringValue2, setCheckStringValue2] = useState('');
+    const [removeLongerStringResult, setRemoveLongerStringResult] = useState('');
 
     const onConcatenateStringsHandler = () => {
         let value1 = concatenateValue1.trim();
@@ -57,6 +61,27 @@ const Ques61_65 = () => {
         }
     }
 
+    const onRemoveLongerStringHandler = () => {
+        let value1 = checkStringValue1.trim();
+        let value2 = checkStringValue2.trim();
+        let concatenateStr = value1 + value2;
+        let extraCharOfValue1 = value1.length - value2.length;
+        let extractedChar1 = value1.substring(0, value1.length-extraCharOfValue1);
+        let addValue1 = extractedChar1 + value2;
+        let extraCharOfValue2 = value2.length - value1.length;
+        let extractedChar2 = value2.substring(0, value2.length - extraCharOfValue2);
+        let addValue2 = value1 + extractedChar2;
+        if((value1 === '') || (value2 === '')) {
+            alert('Fill the input(s).');
+        } else if(value1.length === value2.length) {
+            setRemoveLongerStringResult(concatenateStr);
+        } else if(value1.length > value2.length){
+            setRemoveLongerStringResult(addValue1);
+        } else if(value2.length > value1.length) {
+            setRemoveLongerStringResult(addValue2);
+        }
+    }
+
     return(
         <div className="questionContainer">
             <ConcatenateStrings
@@ -81,6 +106,15 @@ const Ques61_65 = () => {
                 setMiddleThreeCharacterValue={(val) => setMiddleThreeCharacterValue(val)}
                 onMiddleThreeCharacterHandler={onMiddleThreeCharacterHandler}
                 middleThreeCharacterResult={middleThreeCharacterResult}
+            />
+            <RemoveLongerString
+                question={quesData[18]}
+                checkStringValue1={checkStringValue1}
+                checkStringValue2={checkStringValue2}
+                setCheckStringValue1={(val) => setCheckStringValue1(val)}
+                setCheckStringValue2={(val) => setCheckStringValue2(val)}
+                onRemoveLongerStringHandler={onRemoveLongerStringHandler}
+                removeLongerStringResult={removeLongerStringResult}
             />
         </div>
     )
