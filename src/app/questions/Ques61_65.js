@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CheckScript from "../screens/CheckScript";
 import ConcatenateStrings from "../screens/ConcatenateStrings";
 import MiddleThreeCharacter from "../screens/MiddleThreeCharacter";
 import MovingThreeCharacters from "../screens/MovingThreeCharacters";
@@ -17,6 +18,8 @@ const Ques61_65 = () => {
     const [checkStringValue1, setCheckStringValue1] = useState('');
     const [checkStringValue2, setCheckStringValue2] = useState('');
     const [removeLongerStringResult, setRemoveLongerStringResult] = useState('');
+    const [checkScriptValue, setCheckScriptValue] = useState('');
+    const [checkScriptResult, setCheckScriptResult] = useState('');
 
     const onConcatenateStringsHandler = () => {
         let value1 = concatenateValue1.trim();
@@ -64,21 +67,36 @@ const Ques61_65 = () => {
     const onRemoveLongerStringHandler = () => {
         let value1 = checkStringValue1.trim();
         let value2 = checkStringValue2.trim();
-        let concatenateStr = value1 + value2;
-        let extraCharOfValue1 = value1.length - value2.length;
-        let extractedChar1 = value1.substring(0, value1.length-extraCharOfValue1);
-        let addValue1 = extractedChar1 + value2;
-        let extraCharOfValue2 = value2.length - value1.length;
-        let extractedChar2 = value2.substring(0, value2.length - extraCharOfValue2);
-        let addValue2 = value1 + extractedChar2;
         if((value1 === '') || (value2 === '')) {
             alert('Fill the input(s).');
         } else if(value1.length === value2.length) {
+            let concatenateStr = value1 + value2;
             setRemoveLongerStringResult(concatenateStr);
         } else if(value1.length > value2.length){
+            let extraCharOfValue1 = value1.length - value2.length;
+            let extractedChar1 = value1.substring(0, value1.length-extraCharOfValue1);
+            let addValue1 = extractedChar1 + value2;
             setRemoveLongerStringResult(addValue1);
         } else if(value2.length > value1.length) {
+            let extraCharOfValue2 = value2.length - value1.length;
+            let extractedChar2 = value2.substring(0, value2.length - extraCharOfValue2);
+            let addValue2 = value1 + extractedChar2;
             setRemoveLongerStringResult(addValue2);
+        }
+    }
+
+    const onCheckScriptHandler = () => {
+        let value = checkScriptValue.trim();
+        let endValue = value.toLowerCase().substring(value.length - 6);
+        console.log('endValue', endValue);
+        if(value === '') {
+            alert('Fill the input.');
+        } else if(value.length < 6) {
+            alert('String length must be greater or equal to 6.');
+        } else if(endValue  === 'script') {
+            setCheckScriptResult('Yes, the end value of string contains script.');
+        } else {
+            setCheckScriptResult('No, the end value of string does not contain script.');
         }
     }
 
@@ -115,6 +133,13 @@ const Ques61_65 = () => {
                 setCheckStringValue2={(val) => setCheckStringValue2(val)}
                 onRemoveLongerStringHandler={onRemoveLongerStringHandler}
                 removeLongerStringResult={removeLongerStringResult}
+            />
+            <CheckScript
+                question={quesData[19]}
+                checkScriptValue={checkScriptValue}
+                setCheckScriptValue={(val) => setCheckScriptValue(val)}
+                onCheckScriptHandler={onCheckScriptHandler}
+                checkScriptResult={checkScriptResult}
             />
         </div>
     )
