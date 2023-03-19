@@ -99,6 +99,31 @@ export const quesData = [
         quesNo: '65',
         ques: 'Write a JavaScript program to test whether a string end with "Script". The string length must be greater or equal to 6.'
     },
+    {
+        id: '66',
+        quesNo: '66',
+        ques: 'Write a JavaScript program to display the city name if the string begins with "Los" or "New" otherwise return blank.'
+    },
+    {
+        id: '67',
+        quesNo: '67',
+        ques: "Write a JavaScript program to create a new string from a given string, removing the first and last characters of the string if the first or last character are 'P'. Return the original string if the condition is not satisfied."
+    },
+    {
+        id: '68',
+        quesNo: '68',
+        ques: 'Write a JavaScript program to create a new string using the first and last n characters from a given sting. The string length must be greater or equal to n.'
+    },
+    {
+        id: '69',
+        quesNo: '69',
+        ques: 'Write a JavaScript program to compute the sum of three elements of a given array of integers of length 3.'
+    },
+    {
+        id: '70',
+        quesNo: '70',
+        ques: 'Write a JavaScript program to rotate the elements left of a given array of integers of length 3.'
+    },
 ];
 
 
