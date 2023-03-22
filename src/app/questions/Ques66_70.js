@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import CheckP from '../screens/CheckP';
+import CreatingNewString from '../screens/CreatingNewString';
 import DisplayCityName from '../screens/DisplayCityName'
 import { quesData } from '../services/quesData'
 
@@ -9,6 +10,9 @@ const Ques66_70 = () => {
   const [cityNameResult, setCityNameResult] = useState('');
   const [checkStartEndPValue, setCheckStartEndPValue] = useState('');
   const [checkStartEndPResult, setCheckStartEndPResult] = useState('');
+  const [creatingNewStringValue, setCreatingNewStringValue] = useState('');
+  const [creatingNewStringResult, setCreatingNewStringResult] = useState('');
+  const [nValue, setNValue] = useState('');
 
   const onDisplayCityNameHandler = () => {
     let value = cityNameValue.trim();
@@ -33,10 +37,30 @@ const Ques66_70 = () => {
       alert('Fill the input.');
     } else if(value.length < 3) {
       alert('Value must be greater than or equal to 3.');
-    } else if((valueStartChar === 'p') || (valueLastChar === 'p')){
+    } else if((valueStartChar === 'p') || (valueLastChar === 'p')) {
       setCheckStartEndPResult(removingStartEndChar);
     } else {
       setCheckStartEndPResult(value);
+    }
+  }
+
+  const onCreatingNewStringHandler = () => {
+    let value = creatingNewStringValue.trim();
+    let numValue = nValue.trim();
+    let number = Number(Math.trunc(numValue));
+    let first_part = value.substring(0, number);
+    let last_part = value.substring(value.length - number); 
+    let joiningPart = first_part + last_part;
+    if((value === '') || (numValue === '')) {
+      alert('Fill the input(s).');
+    } else if(isNaN(number)) {
+      alert('Please enter a number.');
+    } else if(number === 0) {
+      alert('Please enter a number greater than 0');
+    } else if (value.length < number) {
+      alert('String length must be greater or equal to the number.');
+    } else if (value.length >= number) {
+      setCreatingNewStringResult(joiningPart);
     }
   }
 
@@ -55,6 +79,15 @@ const Ques66_70 = () => {
         setCheckStartEndPValue={(val) => setCheckStartEndPValue(val)}
         onCheckStartEndPHandler={onCheckStartEndPHandler}
         checkStartEndPResult={checkStartEndPResult}
+      />
+      <CreatingNewString
+        question={quesData[22]}
+        creatingNewStringValue={creatingNewStringValue}
+        setCreatingNewStringValue={(val) => setCreatingNewStringValue(val)}
+        nValue={nValue}
+        setNValue={(val) => setNValue(val)}
+        onCreatingNewString={onCreatingNewStringHandler}
+        creatingNewStringResult={creatingNewStringResult}
       />
     </div>
   )
