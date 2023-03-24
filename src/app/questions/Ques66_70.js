@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CheckP from '../screens/CheckP';
+import ComputeSumOfArray from '../screens/ComputeSumOfArray';
 import CreatingNewString from '../screens/CreatingNewString';
 import DisplayCityName from '../screens/DisplayCityName'
 import { quesData } from '../services/quesData'
@@ -13,6 +14,21 @@ const Ques66_70 = () => {
   const [creatingNewStringValue, setCreatingNewStringValue] = useState('');
   const [creatingNewStringResult, setCreatingNewStringResult] = useState('');
   const [nValue, setNValue] = useState('');
+  const [insertArrayValue, setInsertArrayValue] = useState(''); 
+  const [takeArrayValue, setTakeArrayValue] = useState('');
+  const [arraySumResult, setArraySumResult] = useState('');
+  const [numberEntered, setNumberEntered] = useState('');
+  const [numberArray, setNumberArray] = useState([]);
+  const [arrayResult, setArrayResult] = useState('');
+
+  useEffect(() => {
+    if(numberArray.length === 3) {
+      let sum = 0;
+      numberArray.forEach((elem) => sum = sum + elem);
+      setArrayResult(sum);
+      setNumberArray([]);
+    }
+  }, [numberArray])
 
   const onDisplayCityNameHandler = () => {
     let value = cityNameValue.trim();
@@ -64,6 +80,51 @@ const Ques66_70 = () => {
     }
   }
 
+  const onsubmitNumHandler = () => {
+    let value = insertArrayValue.trim();
+    let splitValue = value.split(',');
+    if(value === '') {
+      alert('Please fill the input.');
+    } else if(splitValue.length < 3) {
+      alert('Entered value length is less than 3, please enter a value of length 3.');
+    } else if(splitValue.length > 3) {
+      alert('Entered value length is greater than 3, please enter a value of length 3.');
+    } else if(splitValue.length === 3) {
+        for(let i = 0; i < splitValue.length; i++) {
+          if(splitValue[i] === '') {
+            alert('Please enter proper number followed by comma.');
+          } else if(isNaN(splitValue[i])) {
+            alert('Please enter a number to get the addition result.');
+          } else {
+            let val1 = Number(splitValue[0]);
+            let val2 = Number(splitValue[1]);
+            let val3 = Number(splitValue[2]);
+            let finalData = `${val1} + ${val2} + ${val3}`
+            return setTakeArrayValue(finalData);
+          }
+        }
+    }
+  }
+
+  const onArraySumHandler = () => {
+    let numValue = takeArrayValue.split('+');
+    console.log('numValue', numValue);
+    let sum = 0;
+    for(let i = 0; i < numValue.length; i++) {
+      let number = Number(numValue[i])
+      sum = sum + number;
+    }    
+    setArraySumResult(sum);
+  }
+
+  const onArrayHandler = () => {
+    if(!isNaN(numberEntered)) {
+      let char = Number(numberEntered);
+      setNumberArray([...numberArray, char]);
+      setNumberEntered('');
+    }
+  }
+
   return (
     <div className="questionContainer">
       <DisplayCityName
@@ -88,6 +149,23 @@ const Ques66_70 = () => {
         setNValue={(val) => setNValue(val)}
         onCreatingNewString={onCreatingNewStringHandler}
         creatingNewStringResult={creatingNewStringResult}
+      />
+      <ComputeSumOfArray
+        question={quesData[23]}
+        insertArrayValue={insertArrayValue}
+        setInsertArrayValue={(val) => setInsertArrayValue(val)}
+        takeArrayValue={takeArrayValue}
+        onsubmitNumHandler={onsubmitNumHandler}
+        onArraySumHandler={onArraySumHandler}
+        arraySumResult={arraySumResult}
+      />
+      <ComputeSumOfArray
+        question={quesData[23]}
+        numberEntered={numberEntered}
+        numberArray={numberArray}
+        setNumberEntered={(val) => setNumberEntered(val)}
+        onArrayHandler={onArrayHandler}
+        arrayResult={arrayResult}
       />
     </div>
   )
