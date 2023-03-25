@@ -122,7 +122,7 @@ export const quesData = [
     {
         id: '70',
         quesNo: '70',
-        ques: 'Write a JavaScript program to rotate the elements left of a given array of integers of length 3.'
+        ques: 'Write a JavaScript program to rotate the elements left of a given array of integers.'
     },
 ];
 

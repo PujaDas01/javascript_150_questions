@@ -3,6 +3,7 @@ import CheckP from '../screens/CheckP';
 import ComputeSumOfArray from '../screens/ComputeSumOfArray';
 import CreatingNewString from '../screens/CreatingNewString';
 import DisplayCityName from '../screens/DisplayCityName'
+import RotateArray from '../screens/RotateArray';
 import { quesData } from '../services/quesData'
 
 const Ques66_70 = () => {
@@ -20,6 +21,8 @@ const Ques66_70 = () => {
   const [numberEntered, setNumberEntered] = useState('');
   const [numberArray, setNumberArray] = useState([]);
   const [arrayResult, setArrayResult] = useState('');
+  const [rotateArrayValue, setRotateArrayValue] = useState('');
+  const [rotateArrayResult, setRotateArrayResult] = useState([]);
 
   useEffect(() => {
     if(numberArray.length === 3) {
@@ -125,6 +128,23 @@ const Ques66_70 = () => {
     }
   }
 
+  const onRotateArrayHandler = () => {
+    let value = rotateArrayValue.trim();
+    let splitArr = value.split(',').filter((num) => num !== '');
+    if(!value && (!rotateArrayResult.length)) {
+        alert('Fill the input.');
+    } else if(splitArr.length < 2 && value) {
+        alert('Entered value length is less than 2, please enter a value whose length is greater than 2.');
+    } else if(splitArr.length >= 2 ) {
+      let elem = splitArr.pop();
+        setRotateArrayResult([elem, ...splitArr]);
+        setRotateArrayValue('');
+    } else if(rotateArrayResult.length >= 2 && (!value)) {
+      let elem = rotateArrayResult.pop();
+      setRotateArrayResult([elem, ...rotateArrayResult]);
+    }
+  }
+
   return (
     <div className="questionContainer">
       <DisplayCityName
@@ -166,6 +186,13 @@ const Ques66_70 = () => {
         setNumberEntered={(val) => setNumberEntered(val)}
         onArrayHandler={onArrayHandler}
         arrayResult={arrayResult}
+      />
+      <RotateArray
+        question={quesData[24]}
+        rotateArrayValue={rotateArrayValue}
+        setRotateArrayValue={(val) => setRotateArrayValue(val)}
+        onRotateArrayHandler={onRotateArrayHandler}
+        rotateArrayResult={rotateArrayResult}
       />
     </div>
   )
