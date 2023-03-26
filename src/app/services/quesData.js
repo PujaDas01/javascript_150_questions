@@ -124,6 +124,31 @@ export const quesData = [
         quesNo: '70',
         ques: 'Write a JavaScript program to rotate the elements left of a given array of integers.'
     },
+    {
+        id: '71',
+        quesNo: '71',
+        ques: 'Write a JavaScript program to check whether 1 appears in first or last position of a given array of integers. The array length must be greater or equal to 2.'
+    },
+    {
+        id: '72',
+        quesNo: '72',
+        ques: 'Write a JavaScript program to check whether the first and last elements are equal of a given array of integers length 3.'
+    },
+    {
+        id: '73',
+        quesNo: '73',
+        ques: 'Write a JavaScript program to reverse the elements of a given array of integers length 3.'
+    },
+    {
+        id: '74',
+        quesNo: '74',
+        ques: 'Write a JavaScript program to find the larger value between the first or last and set all the other elements with that value. Display the new array.'
+    },
+    {
+        id: '75',
+        quesNo: '75',
+        ques: 'Write a JavaScript program to create a new array taking the middle elements of the two arrays of integer and each length 3.'
+    },
 ];
 
 
