@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ArrayPosition from '../screens/ArrayPosition';
 import EqualArrayElement from '../screens/EqualArrayElement';
+import LargerArrayValue from '../screens/LargerArrayValue';
 import ReverseArray from '../screens/ReverseArray';
 import { quesData } from '../services/quesData';
 
@@ -11,6 +12,8 @@ const Ques71_75 = () => {
     const [checkEqualArrayElementResult, setCheckEqualArrayElementResult] = useState(null);
     const [reverseArrayValue, setReverseArrayValue] = useState('');
     const [reverseArrayResult, setReverseArrayResult] = useState('');
+    const [largerArrayValue, setLargerArrayValue] = useState('');
+    const [largerArrayResult, setLargerArrayResult] = useState([])
 
     const onCheck1ArrayHandler = () => {
       let value = check1ArrayValue.trim(); 
@@ -59,6 +62,31 @@ const Ques71_75 = () => {
       }
     }
 
+    const onLargerArrayValueHandler = () => {
+      let value = largerArrayValue.trim();
+      let splitArray = value.split(',');
+      let sameValue = Number(splitArray[0]) === Number(splitArray[splitArray.length -1]);
+      let firstGreaterElement = Number(splitArray[0]) > Number(splitArray[splitArray.length -1]);
+      let lastGreaterElement = Number(splitArray[0]) < Number(splitArray[splitArray.length -1]);
+
+      if(!value) {
+        alert('Fill the input.');
+      } else if(splitArray.length < 2) {
+        alert('Value length must be greater than 1.');
+      } else if(sameValue) {
+        setLargerArrayValue('');
+        setLargerArrayResult('Both first and last numbers are equal.')
+      } else if(firstGreaterElement) {
+        let firstElement = splitArray.fill(splitArray[0]).toString()
+        setLargerArrayResult(firstElement);
+        setLargerArrayValue('');
+      } else if (lastGreaterElement) {
+        let lastElement = splitArray.fill(splitArray[splitArray.length - 1]).toString()
+        setLargerArrayResult(lastElement)
+        setLargerArrayValue('');
+      }
+    }
+
   return (
     <div className='questionContainer'>
         <ArrayPosition
@@ -81,6 +109,13 @@ const Ques71_75 = () => {
           setReverseArrayValue={(val) => setReverseArrayValue(val)}
           onReverseArrayHandler={onReverseArrayHandler}
           reverseArrayResult={reverseArrayResult}
+        />
+        <LargerArrayValue
+          question={quesData[28]}
+          largerArrayValue={largerArrayValue}
+          setLargerArrayValue={(val) => setLargerArrayValue(val)}
+          onLargerArrayValueHandler={onLargerArrayValueHandler}
+          largerArrayResult={largerArrayResult}
         />
     </div>
   )
