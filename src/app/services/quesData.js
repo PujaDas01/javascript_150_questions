@@ -149,185 +149,34 @@ export const quesData = [
         quesNo: '75',
         ques: 'Write a JavaScript program to create a new array taking the middle elements of the two arrays of integer and each length 3.'
     },
+    {
+        id: '76',
+        quesNo: '76',
+        ques: 'Write a JavaScript program to create a new array taking the first and last elements from a given array of integers and length must be greater or equal to 1.'
+    },
+    {
+        id: '77',
+        quesNo: '77',
+        ques: 'Write a JavaScript program to test whether an array of integers of length 2 contains 1 or a 3.'
+    },
+    {
+        id: '78',
+        quesNo: '78',
+        ques: 'Write a JavaScript program to test whether an array of integers of length 2 does not contain 1 or a 3.'
+    },
+    {
+        id: '79',
+        quesNo: '79',
+        ques: 'Write a JavaScript program to test whether a given array of integers contains 30 and 40 twice. The array length should be 0, 1, or 2.'
+    },
+    {
+        id: '80',
+        quesNo: '80',
+        ques: 'Write a JavaScript program to swap the first and last elements of a given array of integers. The array length should be at least 1.'
+    },
 ];
 
 
-// export const quesData = [
-//     {
-//         id: '1',
-//         quesFortySix_Fifty:[
-//             {
-//                 no: '46',
-//                 ques: 'Write a JavaScript program to check two given non-negative integers that whether one of the number (not both) is multiple of 7 or 11.'
-//             },
-//             {
-//                 no: '47',
-//                 ques: '47. Write a JavaScript program to check whether a given number is presents in the range 40..10000. For example 40 presents in 40 and 4000.'
-//             },
-//             {
-//                 no: '48',
-//                 ques: '48. Write a JavaScript program to reverse a given string.'
-//             },
-//             {
-//                 no: '49',
-//                 ques: '49. Write a JavaScript program to replace every character in a given string with the character following it in the alphabet.'
-//             },
-//             {
-//                 no: '50',
-//                 ques: '50. Write a JavaScript program to capitalize the first letter of each word of a given string.'
-//             }
-//         ]
-//     },
-//     {
-//         id: '2',
-//         quesFiftyOne_fiftyFive:[
-//             {
-//                 no: '51',
-//                 ques: 'Write a JavaScript program to convert a given number to hours and minutes.'
-//             },
-//             {
-//                 no: '52',
-//                 ques: 'Write a JavaScript program to convert the letters of a given string in alphabetical order.'
-//             },
-//             {
-//                 no: '53',
-//                 ques: 'Write a JavaScript program to check whether the characters a and b are separated by exactly 3 places anywhere (at least once) in a given string.'
-//             },
-//             {
-//                 no: '54',
-//                 ques: 'Write a JavaScript program to count the number of vowels in a given string.'
-//             },
-//             {
-//                 no: '55',
-//                 ques: "Write a JavaScript program to check whether a given string contains equal number of p's and t's."
-//             }
-//         ]
-//     },
-//     {
-//         id: '3',
-//         quesFiftySix_sixty:[
-//             {
-//                 no: '56',
-//                 ques: 'Write a JavaScript program to divide two positive numbers and return the result as string with properly formatted commas.'
-//             },
-//             {
-//                 no: '57',
-//                 ques: 'Write a JavaScript program to create a new string of specified copies (positive number) of a given string. '
-//             },
-//             {
-//                 no: '58',
-//                 ques: 'Write a JavaScript program to create a new string of 4 copies of the last 3 characters of a given original string. The length of the given string must be 3 and above.'
-//             },
-//             {
-//                 no: '59',
-//                 ques: 'Write a JavaScript program to extract the first half of a string of even length.'
-//             },
-//             {
-//                 no: '60',
-//                 ques: 'Write a JavaScript program to create a new string without the first and last character of a given string.'
-//             }
-//         ]
-//     },
-//     {
-//         id: '4',
-//         quesSixtyOne_sixtyFive:[
-//             {
-//                 no: '61',
-//                 ques: 'Write a JavaScript program to concatenate two strings except their first character.'
-//             },
-//             {
-//                 no: '62',
-//                 ques: 'Write a JavaScript program to move last three character to the start of a given string. The string length must be greater or equal to three.'
-//             },
-//             {
-//                 no: '63',
-//                 ques: 'Write a JavaScript program to create a string using the middle three characters of a given string of odd length. The string length must be greater or equal to three.'
-//             },
-//             {
-//                 no: '64',
-//                 ques: 'Write a JavaScript program to concatenate two strings and return the result. If the length of the strings are not same then remove the characters from the longer string.'
-//             },
-//             {
-//                 no: '65',
-//                 ques: 'Write a JavaScript program to test whether a string end with "Script". The string length must be greater or equal to 6.'
-//             }
-//         ]
-//     },
-//     {
-//         id: '5',
-//         quesSixtySix_Seventy:[
-//             {
-//                 no: '66',
-//                 ques: 'Write a JavaScript program to display the city name if the string begins with "Los" or "New" otherwise return blank.'
-//             },
-//             {
-//                 no: '67',
-//                 ques: "Write a JavaScript program to create a new string from a given string, removing the first and last characters of the string if the first or last character are 'P'. Return the original string if the condition is not satisfied."
-//             },
-//             {
-//                 no: '68',
-//                 ques: 'Write a JavaScript program to create a new string using the first and last n characters from a given sting. The string length must be greater or equal to n.'
-//             },
-//             {
-//                 no: '69',
-//                 ques: 'Write a JavaScript program to compute the sum of three elements of a given array of integers of length 3.'
-//             },
-//             {
-//                 no: '70',
-//                 ques: 'Write a JavaScript program to rotate the elements left of a given array of integers of length 3.'
-//             }
-//         ]
-//     },
-//     {
-//         id: '6',
-//         quesSeventyOne_seventyFive:[
-//             {
-//                 no: '71',
-//                 ques: 'Write a JavaScript program to check whether 1 appears in first or last position of a given array of integers. The array length must be greater or equal to 1.'
-//             },
-//             {
-//                 no: '72',
-//                 ques: 'Write a JavaScript program to check whether the first and last elements are equal of a given array of integers length 3.'
-//             },
-//             {
-//                 no: '73',
-//                 ques: 'Write a JavaScript program to reverse the elements of a given array of integers length 3.'
-//             },
-//             {
-//                 no: '74',
-//                 ques: 'Write a JavaScript program to find the larger value between the first or last and set all the other elements with that value. Display the new array.'
-//             },
-//             {
-//                 no: '75',
-//                 ques: 'Write a JavaScript program to create a new array taking the middle elements of the two arrays of integer and each length 3.'
-//             }
-//         ]
-//     },
-//     {
-//         id: '7',
-//         quesSeventySix_eighty:[
-//             {
-//                 no: '76',
-//                 ques: 'Write a JavaScript program to create a new array taking the first and last elements from a given array of integers and length must be greater or equal to 1.'
-//             },
-//             {
-//                 no: '77',
-//                 ques: 'Write a JavaScript program to test whether an array of integers of length 2 contains 1 or a 3.'
-//             },
-//             {
-//                 no: '78',
-//                 ques: 'Write a JavaScript program to test whether an array of integers of length 2 does not contain 1 or a 3.'
-//             },
-//             {
-//                 no: '79',
-//                 ques: 'Write a JavaScript program to test whether a given array of integers contains 30 and 40 twice. The array length should be 0, 1, or 2.'
-//             },
-//             {
-//                 no: '80',
-//                 ques: 'Write a JavaScript program to swap the first and last elements of a given array of integers. The array length should be at least 1.'
-//             }
-//         ]
-//     },
 //     {
 //         id: '8',
 //         quesEightyOne_eightyFive:[
