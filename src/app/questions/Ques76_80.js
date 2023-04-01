@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import FirstLastArrayElement from '../screens/FirstLastArrayElement';
 import { quesData } from '../services/quesData';
 import CheckArrayElement from '../screens/CheckArrayElement';
+import CheckArrayValue from '../screens/CheckArrayValue';
 
 const Ques76_80 = () => {
 
@@ -9,6 +10,8 @@ const Ques76_80 = () => {
     const [firstLastArrayResult, setFirstLastArrayResult] = useState([]);
     const [checkArrayElementValue, setCheckArrayElementValue] = useState('');
     const [arrayElementResult, setCheckArrayElementResult] = useState(null);
+    const [checkArrayValue, setCheckArrayValue] = useState('');
+    const [arrayElementValueResult, setArrayElementValueResult] = useState(null);
 
     const onFirstLastArrayValueHandler = () => {
         let value = firstLastArrayValue.trim();
@@ -38,6 +41,20 @@ const Ques76_80 = () => {
         }
     }
 
+    const onCheckArrayValueHandler = () => {
+        let value = checkArrayValue.trim();
+        let splitArr = value.split(',');
+        if(!value) {
+            alert('Fill the input.');
+        } else if((splitArr.length < 2) || splitArr.length > 2) {
+            alert('Value length must be 2.')
+        } else if((splitArr.length === 2) && ((splitArr.includes('1')) || (splitArr.includes('3')))) {
+            setArrayElementValueResult(false);
+        } else {
+            setArrayElementValueResult(true);
+        }
+    }
+
   return (
     <div className='questionContainer'>
         <FirstLastArrayElement
@@ -53,6 +70,13 @@ const Ques76_80 = () => {
             setCheckArrayElementValue={(val) => setCheckArrayElementValue(val)}
             onCheckArrayElementHandler={onCheckArrayElementHandler}
             arrayElementResult={arrayElementResult}
+        />
+        <CheckArrayValue
+            question={quesData[32]}
+            checkArrayValue={checkArrayValue}
+            setCheckArrayValue={(val) => setCheckArrayValue(val)}
+            onCheckArrayValueHandler={onCheckArrayValueHandler}
+            arrayElementValueResult={arrayElementValueResult}
         />
     </div>
   )
