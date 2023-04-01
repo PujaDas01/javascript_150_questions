@@ -4,6 +4,7 @@ import EqualArrayElement from '../screens/EqualArrayElement';
 import LargerArrayValue from '../screens/LargerArrayValue';
 import ReverseArray from '../screens/ReverseArray';
 import { quesData } from '../services/quesData';
+import MiddleArrayElement from '../screens/MiddleArrayElement';
 
 const Ques71_75 = () => {
     const [check1ArrayValue, setCheck1ArrayValue] = useState('');
@@ -13,7 +14,10 @@ const Ques71_75 = () => {
     const [reverseArrayValue, setReverseArrayValue] = useState('');
     const [reverseArrayResult, setReverseArrayResult] = useState('');
     const [largerArrayValue, setLargerArrayValue] = useState('');
-    const [largerArrayResult, setLargerArrayResult] = useState([])
+    const [largerArrayResult, setLargerArrayResult] = useState([]);
+    const [firstArrayValue, setFirstArrayValue] = useState('');
+    const [secondArrayValue, setSecondArrayValue] = useState('');
+    const [middleValueResult, setMiddleValueResult] = useState([]);
 
     const onCheck1ArrayHandler = () => {
       let value = check1ArrayValue.trim(); 
@@ -87,6 +91,27 @@ const Ques71_75 = () => {
       }
     }
 
+    const onMiddleArrayValueHandler = () => {
+      let value1 = firstArrayValue.trim();
+      let value2 = secondArrayValue.trim();
+      let splitArr1 = value1.split(',');
+      let splitArr2 = value2.split(',');
+      let filterArray1 = splitArr1.filter((value) => value !== '');
+      let filterArray2 = splitArr2.filter((value) => value !== '');
+
+      if(!(value1) || !(value2)) {
+        alert('Please fill the input(s).');
+      } else if ((splitArr1.length < 3) || (splitArr2.length < 3) || (splitArr1.length > 3) || (splitArr2.length > 3)) {
+        alert('Value length must be 3.');
+      } else if((filterArray1.length !== 3) || (filterArray2.length !== 3)) {
+        alert('Please enter proper number.');
+      } else if ((filterArray1.length === 3) && (filterArray2.length === 3)) {
+        let firstArrayMiddleValue = splitArr1[1];
+        let secondArrayMiddleValue = splitArr2[1];
+        setMiddleValueResult([firstArrayMiddleValue, ', ', ...secondArrayMiddleValue]);
+      }
+    }
+
   return (
     <div className='questionContainer'>
         <ArrayPosition
@@ -116,6 +141,15 @@ const Ques71_75 = () => {
           setLargerArrayValue={(val) => setLargerArrayValue(val)}
           onLargerArrayValueHandler={onLargerArrayValueHandler}
           largerArrayResult={largerArrayResult}
+        />
+        <MiddleArrayElement
+          question={quesData[29]}
+          firstArrayValue={firstArrayValue}
+          setFirstArrayValue={(val) => setFirstArrayValue(val)}
+          secondArrayValue={secondArrayValue}
+          setSecondArrayValue={(val) => setSecondArrayValue(val)}
+          onMiddleArrayValueHandler={onMiddleArrayValueHandler}
+          middleValueResult={middleValueResult}
         />
     </div>
   )
