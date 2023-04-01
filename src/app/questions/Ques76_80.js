@@ -3,6 +3,7 @@ import FirstLastArrayElement from '../screens/FirstLastArrayElement';
 import { quesData } from '../services/quesData';
 import CheckArrayElement from '../screens/CheckArrayElement';
 import CheckArrayValue from '../screens/CheckArrayValue';
+import CheckArrayContains from '../screens/CheckArrayContains';
 
 const Ques76_80 = () => {
 
@@ -12,6 +13,8 @@ const Ques76_80 = () => {
     const [arrayElementResult, setCheckArrayElementResult] = useState(null);
     const [checkArrayValue, setCheckArrayValue] = useState('');
     const [arrayElementValueResult, setArrayElementValueResult] = useState(null);
+    const [checkArrayContainsValue, setCheckArrayContainsValue] = useState('');
+    const [arrayContainsResult, setArrayContainsResult] = useState(null);
 
     const onFirstLastArrayValueHandler = () => {
         let value = firstLastArrayValue.trim();
@@ -55,6 +58,22 @@ const Ques76_80 = () => {
         }
     }
 
+    const onCheckArrayContainsHandler = () => {
+        let value = checkArrayContainsValue.trim();
+        let splitArr = value.split(',');
+        let check30 = splitArr.filter((num) => num === '30').length;
+        let check40 = splitArr.filter((num) => num === '40').length;
+        if(!value) {
+            alert('Fill the input.');
+        } else if((splitArr.length < 3) || (splitArr.length > 3)) {
+            alert('Value length must be 3');
+        } else if ((splitArr.length === 3) && ((check30 === 2) || (check40 === 2))) {
+            setArrayContainsResult(true);
+        } else {
+            setArrayContainsResult(false);
+        }
+    }
+
   return (
     <div className='questionContainer'>
         <FirstLastArrayElement
@@ -77,6 +96,13 @@ const Ques76_80 = () => {
             setCheckArrayValue={(val) => setCheckArrayValue(val)}
             onCheckArrayValueHandler={onCheckArrayValueHandler}
             arrayElementValueResult={arrayElementValueResult}
+        />
+        <CheckArrayContains
+            question={quesData[33]}
+            checkArrayContainsValue={checkArrayContainsValue}
+            setCheckArrayContainsValue={(val) => setCheckArrayContainsValue(val)}
+            onCheckArrayContainsHandler={onCheckArrayContainsHandler}
+            arrayContainsResult={arrayContainsResult}
         />
     </div>
   )
