@@ -4,6 +4,7 @@ import { quesData } from '../services/quesData';
 import CheckArrayElement from '../screens/CheckArrayElement';
 import CheckArrayValue from '../screens/CheckArrayValue';
 import CheckArrayContains from '../screens/CheckArrayContains';
+import SwapArrayElements from '../screens/SwapArrayElements';
 
 const Ques76_80 = () => {
 
@@ -15,6 +16,8 @@ const Ques76_80 = () => {
     const [arrayElementValueResult, setArrayElementValueResult] = useState(null);
     const [checkArrayContainsValue, setCheckArrayContainsValue] = useState('');
     const [arrayContainsResult, setArrayContainsResult] = useState(null);
+    const [swapElementValue, setSwapElementValue] = useState('');
+    const [swapElementResult, setSwapElementResult] = useState('');
 
     const onFirstLastArrayValueHandler = () => {
         let value = firstLastArrayValue.trim();
@@ -74,6 +77,21 @@ const Ques76_80 = () => {
         }
     }
 
+    const onSwapElementHandler = () => {
+        let value = swapElementValue.trim()
+        let splitArr = value.split(',');
+        let filteredArray = splitArr.filter((elem) => elem !== '');
+        let middleElemValue = filteredArray.slice(1, filteredArray.length-1);
+        let swapArrValue = `${filteredArray[filteredArray.length-1]},${middleElemValue},${filteredArray[0]}`;
+        if(!value) {
+            alert('Please enter value.');
+        } else if(splitArr.length <= 1) {
+            alert('Value length must be greater than 1.');
+        } else if((splitArr.length >= 2) && (filteredArray.length >= 2)) {
+            setSwapElementResult(swapArrValue);
+        }
+    }
+
   return (
     <div className='questionContainer'>
         <FirstLastArrayElement
@@ -103,6 +121,13 @@ const Ques76_80 = () => {
             setCheckArrayContainsValue={(val) => setCheckArrayContainsValue(val)}
             onCheckArrayContainsHandler={onCheckArrayContainsHandler}
             arrayContainsResult={arrayContainsResult}
+        />
+        <SwapArrayElements
+            question={quesData[34]}
+            swapElementValue={swapElementValue}
+            setSwapElementValue={(val) => setSwapElementValue(val)}
+            onSwapElementHandler={onSwapElementHandler}
+            swapElementResult={swapElementResult}
         />
     </div>
   )
