@@ -13,6 +13,7 @@ import Ques61_65 from './app/questions/Ques61_65';
 import Ques66_70 from './app/questions/Ques66_70';
 import Ques71_75 from './app/questions/Ques71_75';
 import Ques76_80 from './app/questions/Ques76_80';
+import Ques81_85 from './app/questions/Ques81_85';
 
 const App = () => {
 
@@ -42,6 +43,7 @@ const App = () => {
       <Ques66_70/>
       <Ques71_75/>
       <Ques76_80/>
+      <Ques81_85/>
     </div>
   )
 }

@@ -174,32 +174,38 @@ export const quesData = [
         quesNo: '80',
         ques: 'Write a JavaScript program to swap the first and last elements of a given array of integers. The array length should be at least 1.'
     },
+    {
+        id: '81',
+        quesNo: '81',
+        ques: 'Write a JavaScript program to add two digits of a given positive integer of length two.'
+    },
+    {
+        id: '82',
+        quesNo: '82',
+        ques: 'Write a JavaScript to add two positive integers without carry.'
+    },
+    {
+        id: '83',
+        quesNo: '83',
+        ques: 'Write a JavaScript to find the longest string from a given array of strings.'
+    },
+    {
+        id: '84',
+        quesNo: '84',
+        ques: 'Write a JavaScript to replace each character of a given string by the next one in the English alphabet.'
+    },
+    {
+        id: '85',
+        quesNo: '85',
+        ques: 'Write a JavaScript code to divide a given array of positive integers into two parts. First element goes to first part, second element goes to second part, and third element goes to first part and so on. Now compute the sum of two parts and store into an array of size two.'
+    }
 ];
 
 
 //     {
 //         id: '8',
 //         quesEightyOne_eightyFive:[
-//             {
-//                 no: '81',
-//                 ques: 'Write a JavaScript program to add two digits of a given positive integer of length two.'
-//             },
-//             {
-//                 no: '82',
-//                 ques: 'Write a JavaScript to add two positive integers without carry.'
-//             },
-//             {
-//                 no: '83',
-//                 ques: 'Write a JavaScript to find the longest string from a given array of strings.'
-//             },
-//             {
-//                 no: '84',
-//                 ques: 'Write a JavaScript to replace each character of a given string by the next one in the English alphabet.'
-//             },
-//             {
-//                 no: '85',
-//                 ques: 'Write a JavaScript code to divide a given array of positive integers into two parts. First element goes to first part, second element goes to second part, and third element goes to first part and so on. Now compute the sum of two parts and store into an array of size two.'
-//             }
+
 //         ]
 //     },
 //     {
