@@ -73,14 +73,18 @@ const Ques46_50 = () => {
 
     const onReplaceStringHandler = () => {
         let value = replaceValue.trim();
-        console.log('Value =', value);
         let splitValue = value.split('');
-        console.log('splitValue =', splitValue);
         let encryptedString = '';
         let stringCode = '';
         for(splitValue=0; splitValue<value.length; splitValue++) {
-            stringCode = value[splitValue].charCodeAt(0) + 1;
-            encryptedString = encryptedString + String.fromCharCode(stringCode);
+            if(value[splitValue] === 'z') {
+                encryptedString = encryptedString + 'a';
+            } else if(value[splitValue] === 'Z') {
+                encryptedString = encryptedString + 'A';
+            } else {
+                stringCode = value[splitValue].charCodeAt(0) + 1;
+                encryptedString = encryptedString + String.fromCharCode(stringCode);
+            }
         }
         return setReplaceValueResult(encryptedString);
     }
