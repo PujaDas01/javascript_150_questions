@@ -4,6 +4,7 @@ import { quesData } from '../services/quesData';
 import AddWithoutCarry from '../screens/AddWithoutCarry';
 import LongestString from '../screens/LongestString';
 import ReplaceToEnglishAlphabet from '../screens/ReplaceToEnglishAlphabet';
+import ArraySizeTwo from '../screens/ArraySizeTwo';
 
 const Ques81_85 = () => {
     const [positiveIntegersValue, setPositiveIntegersValue] = useState('');
@@ -14,6 +15,11 @@ const Ques81_85 = () => {
     const [longestStringResult, setLongestStringResult] = useState('');
     const [replaceAlphabetValue, setReplaceAlphabetValue] = useState('');
     const [replaceToEnglishAlphabetResult, setReplaceToEnglishAlphabetResult] = useState('');
+    const [positiveArrayValue, setPositiveArrayValue] = useState('');
+    const [evenIndexArray, setEvenIndexArray] = useState([]);
+    const [oddIndexArray, setOddIndexArray] = useState([]);
+    const [evenIndexArraySumResult, setEvenIndexArraySumResult] = useState([]);
+    const [oddIndexArraySumResult, setOddIndexArraySumResult] = useState([]);
 
     const onAddPositiveIntegersHandler = () => {
         let value = positiveIntegersValue.trim();
@@ -91,6 +97,41 @@ const Ques81_85 = () => {
             return setReplaceToEnglishAlphabetResult(encryptedStr);
         }
     }
+    const getTwoArrayHandler = () => {
+        let splitArr = positiveArrayValue.split(',');
+        let oddIndexValue = [];
+        let evenIndexValue = [];
+        for(let i = 0; i < splitArr.length; i++) {
+            if((splitArr[i].trim() === '') || (splitArr[i].trim() < 0)) {
+                return (alert('Empty spaces and negative numbers are not allowed.'));
+            }
+        }
+
+        for(let i = 0; i < splitArr.length; i++) {
+            if(splitArr.length <= 3) {
+                return (alert('Number length must be greater than or equal to 4.'));
+            } else {
+                if((i % 2) === 0) {
+                    evenIndexValue.push(splitArr[i].trim());
+                    setEvenIndexArray(evenIndexValue);
+                } else {
+                    oddIndexValue.push(splitArr[i].trim());
+                    setOddIndexArray(oddIndexValue)
+                }
+            }
+        }
+    }
+
+    const twoArraySumHandler = () => {
+        if((!evenIndexArray.length) && (!oddIndexArray.length)) {
+            alert('Fill the above input.');
+        } else {
+            let addEvenIndex = evenIndexArray.reduce((acc, currValue) => Number(acc) + Number(currValue));
+            setEvenIndexArraySumResult(addEvenIndex);
+            let addOddIndex = oddIndexArray.reduce((acc, currValue) => Number(acc) + Number(currValue));
+            setOddIndexArraySumResult(addOddIndex);
+        }
+    }
 
   return (
     <div className='questionContainer'>
@@ -121,6 +162,17 @@ const Ques81_85 = () => {
                 setReplaceAlphabetValue={(val) => setReplaceAlphabetValue(val)}
                 onEnglishAlphabetHandler={onEnglishAlphabetHandler}
                 replaceToEnglishAlphabetResult={replaceToEnglishAlphabetResult}
+            />
+            <ArraySizeTwo
+                question={quesData[39]}
+                positiveArrayValue={positiveArrayValue}
+                setPositiveArrayValue={(val) => setPositiveArrayValue(val)}
+                getTwoArrayHandler={getTwoArrayHandler}
+                evenIndexArray={evenIndexArray}
+                oddIndexArray={oddIndexArray}
+                twoArraySumHandler={twoArraySumHandler}
+                evenIndexArraySumResult={evenIndexArraySumResult}
+                oddIndexArraySumResult={oddIndexArraySumResult}
             />
     </div>
   )
