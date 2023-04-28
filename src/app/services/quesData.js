@@ -198,41 +198,36 @@ export const quesData = [
         id: '85',
         quesNo: '85',
         ques: 'Write a JavaScript code to divide a given array of positive integers into two parts. First element goes to first part, second element goes to second part, and third element goes to first part and so on. Now compute the sum of two parts and store into an array of size two.'
-    }
+    },
+    {
+        id: '86',
+        quesNo: '86',
+        ques: "Write a JavaScript program to find the types of a given angle. Types of angles: Acute angle: An angle between 0 and 90 degrees. Right angle: An 90 degree angle.Obtuse angle: An angle between 90 and 180 degrees. Straight angle: A 180 degree angle."
+    },
+    {
+        id: '87',
+        quesNo: '87',
+        ques: 'Write a JavaScript program to check whether two arrays of integers of same length are similar or not. The arrays will be similar if one array can be obtained from another array by swapping at most one pair of elements.'
+    },
+    {
+        id: '88',
+        quesNo: '88',
+        ques: 'Write a JavaScript program that takes two integers and a divisor. If the given divisor divides both integers and it does not divide either, then two given integers are similar. Check whether two given integers are similar or not.'
+    },
+    {
+        id: '89',
+        quesNo: '89',
+        ques: "Write a JavaScript program to check whether it is possible to replace $ in a given expression x $ y = z with one of the four signs +, -, * or / to obtain a correct expression. For example x = 10, y = 30 and z = 300, we can replace $ with a multiple operator (*) to obtain x * y = z'"
+    },
+    {
+        id: '90',
+        quesNo: '90',
+        ques: 'Write a JavaScript program to find the kth greatest element of a given array of integers.'
+    },
 ];
 
 
-//     {
-//         id: '8',
-//         quesEightyOne_eightyFive:[
 
-//         ]
-//     },
-//     {
-//         id: '9',
-//         quesEightySix_ninety:[
-//             {
-//                 no: '86',
-//                 ques: "Write a JavaScript program to find the types of a given angle. Types of angles: Acute angle: An angle between 0 and 90 degrees. Right angle: An 90 degree angle.Obtuse angle: An angle between 90 and 180 degrees. Straight angle: A 180 degree angle."
-//             },
-//             {
-//                 no: '87',
-//                 ques: 'Write a JavaScript program to check whether two arrays of integers of same length are similar or not. The arrays will be similar if one array can be obtained from another array by swapping at most one pair of elements.'
-//             },
-//             {
-//                 no: '88',
-//                 ques: 'Write a JavaScript program that takes two integers and a divisor. If the given divisor divides both integers and it does not divide either, then two given integers are similar. Check whether two given integers are similar or not.'
-//             },
-//             {
-//                 no: '89',
-//                 ques: "Write a JavaScript program to check whether it is possible to replace $ in a given expression x $ y = z with one of the four signs +, -, * or / to obtain a correct expression. For example x = 10, y = 30 and z = 300, we can replace $ with a multiple operator (*) to obtain x * y = z'"
-//             },
-//             {
-//                 no: '90',
-//                 ques: 'Write a JavaScript program to find the kth greatest element of a given array of integers.'
-//             }
-//         ]
-//     },
 //     {
 //         id: '10',
 //         quesNinetyOne_ninetyFive:[
