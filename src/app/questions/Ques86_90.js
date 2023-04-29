@@ -3,6 +3,7 @@ import TypesOfAngle from '../screens/TypesOfAngle';
 import { quesData } from '../services/quesData';
 import SimilarArray from '../screens/SimilarArray';
 import TwoIntegersDivisor from '../screens/TwoIntegersDivisor';
+import ReplaceSigns from '../screens/ReplaceSigns';
 
 const Ques86_90 = () => {
 
@@ -10,6 +11,8 @@ const Ques86_90 = () => {
   const [angleResult, setAngleResult] = useState('');
   const [divideValue, setDivideValue] = useState('');
   const [divideIntegersResult, setDivideIntegersResult] = useState(null);
+  const [replaceSignValue, setReplaceSignValue] = useState('');
+  const [replaceSignResult, setReplaceSignResult] = useState(null)
 
   const findAngleHandler = () => {
     let value = angleValue.trim();
@@ -43,6 +46,22 @@ const Ques86_90 = () => {
     }
   }
 
+  const replaceSignHandler = () => {
+    let value = replaceSignValue.split(',');
+    let checkArray = value.filter((element) => element !== ' ');
+    let x = Number(checkArray[0]);
+    let y = Number(checkArray[1]);
+    let result = Number(checkArray[2]);
+    if(checkArray.length < 3 || checkArray.length > 3) {
+      alert('Please fill the number, number length must be 3');
+    } else if(checkArray.length === 3) {
+        if((x + y == result) || (x * y == result) || (x / y == result) || (x - y == result)) {
+          setReplaceSignResult(true);
+        } else {
+          setReplaceSignResult(false);
+        }
+    }
+  }
   
   return (
     <div className='questionContainer'>
@@ -63,6 +82,13 @@ const Ques86_90 = () => {
         setDivideValue={(val) => setDivideValue(val)}
         checkDivideHandler={checkDivideHandler}
         divideIntegersResult={divideIntegersResult}
+      />
+      <ReplaceSigns
+        question={quesData[43]}
+        replaceSignValue={replaceSignValue}
+        setReplaceSignValue={(val) => setReplaceSignValue(val)}
+        replaceSignHandler={replaceSignHandler}
+        replaceSignResult={replaceSignResult}
       />
     </div>
   )
