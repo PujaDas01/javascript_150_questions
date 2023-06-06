@@ -4,6 +4,7 @@ import { quesData } from '../services/quesData';
 import SimilarArray from '../screens/SimilarArray';
 import TwoIntegersDivisor from '../screens/TwoIntegersDivisor';
 import ReplaceSigns from '../screens/ReplaceSigns';
+import GreatestArrayElement from '../screens/GreatestArrayElement';
 
 const Ques86_90 = () => {
 
@@ -12,7 +13,9 @@ const Ques86_90 = () => {
   const [divideValue, setDivideValue] = useState('');
   const [divideIntegersResult, setDivideIntegersResult] = useState(null);
   const [replaceSignValue, setReplaceSignValue] = useState('');
-  const [replaceSignResult, setReplaceSignResult] = useState(null)
+  const [replaceSignResult, setReplaceSignResult] = useState(null);
+  const [greatestArrayElement, setGreatestArrayElement] = useState('');
+  const [greatestArrayElementResult, setGreatestArrayElementResult] = useState('');
 
   const findAngleHandler = () => {
     let value = angleValue.trim();
@@ -55,12 +58,16 @@ const Ques86_90 = () => {
     if(checkArray.length < 3 || checkArray.length > 3) {
       alert('Please fill the number, number length must be 3');
     } else if(checkArray.length === 3) {
-        if((x + y == result) || (x * y == result) || (x / y == result) || (x - y == result)) {
+        if((x + y === result) || (x * y === result) || (x / y === result) || (x - y === result)) {
           setReplaceSignResult(true);
         } else {
           setReplaceSignResult(false);
         }
     }
+  }
+
+  const greatestArrayElementHandler = () => {
+    // Need to continue later on
   }
   
   return (
@@ -89,6 +96,13 @@ const Ques86_90 = () => {
         setReplaceSignValue={(val) => setReplaceSignValue(val)}
         replaceSignHandler={replaceSignHandler}
         replaceSignResult={replaceSignResult}
+      />
+      <GreatestArrayElement
+        question={quesData[44]}
+        greatestArrayElement={greatestArrayElement}
+        setGreatestArrayElement={(val) => setGreatestArrayElement(val)}
+        greatestArrayElementHandler={greatestArrayElementHandler}
+        greatestArrayElementResult={greatestArrayElementResult}
       />
     </div>
   )
